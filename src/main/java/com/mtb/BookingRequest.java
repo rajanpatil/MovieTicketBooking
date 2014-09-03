@@ -8,6 +8,10 @@ public class BookingRequest {
     public String showTime;
     public int noOfSeats;
 
+    private BookingRequest(){
+
+    }
+
     public static BookingRequestBuilder newBookingRequest(){
         return new BookingRequestBuilder();
     }

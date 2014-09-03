@@ -1,12 +1,19 @@
 package com.mtb;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by ee on 3/9/14.
  */
 public class BookingResponse {
     public String msg;
     public String showTime;
-    public int[] bookedSeats;
+    public List<Integer> bookedSeats;
+
+    private BookingResponse(){
+
+    }
 
     public static BookingResponseBuilder newBookingResponse(){
         return new BookingResponseBuilder();
@@ -16,7 +23,7 @@ public class BookingResponse {
     public String toString() {
         StringBuilder responseMsg = new StringBuilder();
         responseMsg.append(msg);
-        if(bookedSeats.length>0){
+        if(bookedSeats.size()>0){
             responseMsg.append(", seats:");
             for(int seat:bookedSeats){
                 responseMsg.append(seat+" ");
@@ -29,7 +36,7 @@ public class BookingResponse {
     public static class BookingResponseBuilder {
         public String msg;
         public String showTime;
-        public int[] bookedSeats;
+        public List<Integer> bookedSeats = new ArrayList<Integer>();
 
         public BookingResponseBuilder withMsg(String message){
             this.msg = message;
@@ -41,7 +48,7 @@ public class BookingResponse {
             return this;
         }
 
-        public BookingResponseBuilder withBookedSeats(int[] bookedSeats){
+        public BookingResponseBuilder withBookedSeats(List<Integer> bookedSeats){
             this.bookedSeats = bookedSeats;
             return this;
         }

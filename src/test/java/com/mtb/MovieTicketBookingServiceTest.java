@@ -20,7 +20,6 @@ public class MovieTicketBookingServiceTest {
         response =service.bookTicket(request);
 
         //then
-
         Assert.assertEquals("booked", response.msg);
     }
 
@@ -35,7 +34,6 @@ public class MovieTicketBookingServiceTest {
         response =service.bookTicket(request);
 
         //then
-
         Assert.assertEquals("booked", response.msg);
     }
 }

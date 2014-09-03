@@ -33,4 +33,32 @@ public class SMSServiceTest {
         //Then
         Assert.assertNotNull(smsResponse);
     }
+
+    @Test
+    public void sendMovieTicketBookingSMSForDuplicateBooking(){
+        //given
+        String smsRequest = "Name:Rajan,NoOfSeats:2,Show:3pm";
+        String smsResponse=null;
+        SMSService service = new SMSService();
+        //when
+        smsResponse = service.send(smsRequest);
+
+        smsResponse = service.send(smsRequest);
+        //Then
+        Assert.assertNotNull(smsResponse);
+        Assert.assertEquals("already booked", smsResponse);
+    }
+
+    @Test
+    public void sendMovieTicketBookingSMSForOverBooking(){
+        //given
+        String smsRequest = "Name:Rajan,NoOfSeats:60,Show:3pm";
+        String smsResponse=null;
+        SMSService service = new SMSService();
+        //when
+        smsResponse = service.send(smsRequest);
+        //Then
+        Assert.assertNotNull(smsResponse);
+        Assert.assertEquals("seats not available", smsResponse);
+    }
 }
