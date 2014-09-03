@@ -28,7 +28,7 @@ public class BookingResponse {
             for(int seat:bookedSeats){
                 responseMsg.append(seat+" ");
             }
-            responseMsg.append(","+showTime);
+            responseMsg.append(",show:"+showTime);
         }
         return responseMsg.toString();
     }
@@ -44,7 +44,7 @@ public class BookingResponse {
         }
 
         public BookingResponseBuilder withShowtime(String showtime){
-            this.showTime = showTime;
+            this.showTime =showtime;
             return this;
         }
 

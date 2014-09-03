@@ -4,7 +4,7 @@ package com.mtb;
  * Created by ee on 3/9/14.
  */
 
-import com.mtb.com.mtb.service.SMSService;
+import com.mtb.service.SMSService;
 import junit.framework.Assert;
 import org.junit.Test;
 

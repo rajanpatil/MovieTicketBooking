@@ -25,6 +25,9 @@
         <module name="MovieTicketBooking" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MovieTicketBooking" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

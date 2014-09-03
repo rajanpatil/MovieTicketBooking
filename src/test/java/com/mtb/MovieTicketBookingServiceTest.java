@@ -1,6 +1,6 @@
 package com.mtb;
 
-import com.mtb.com.mtb.service.MovieTicketBookingService;
+import com.mtb.service.MovieTicketBookingService;
 import junit.framework.Assert;
 import org.junit.Test;
 

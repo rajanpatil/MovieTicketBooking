@@ -36,12 +36,16 @@ public class MovieShow {
     public BookingResponse book(BookingRequest request) {
         BookingResponse.BookingResponseBuilder response = BookingResponse.newBookingResponse().withMsg("booked");
         List<Integer> bookedSeats = new ArrayList<Integer>();
-
+        int ticketCounter = request.noOfSeats;
         if(seats.length>request.noOfSeats){
             for(int i=0;i<seats.length;i++){
                 if(!seats[i]){
                     bookedSeats.add(new Integer(i+1));
                     seats[i]=true;
+                    if(--ticketCounter<=0){
+                        break;
+                    }
+
                 }
             }
             currentBooking.add(request.toString());
