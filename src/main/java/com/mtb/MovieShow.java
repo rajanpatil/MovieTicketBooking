@@ -62,6 +62,7 @@ public class MovieShow {
     public static class MovieShowBuilder {
         public String time;
         public boolean[] seats;
+        public int capacity;
 
         public MovieShowBuilder withShowTime(String showTime){
             this.time = showTime;
@@ -71,8 +72,13 @@ public class MovieShow {
         public MovieShow build(){
             MovieShow show = new MovieShow();
             show.showTime = this.time;
-            show.seats = new boolean[MovieTheater.capacity];
+            show.seats = new boolean[capacity];
             return show;
+        }
+
+        public MovieShowBuilder withCapacity(int capacity) {
+            this.capacity =capacity;
+            return this;
         }
     }
 }

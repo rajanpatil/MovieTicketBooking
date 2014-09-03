@@ -9,6 +9,8 @@ import javax.servlet.http.*;
 
 public class DispatchServlet extends HttpServlet {
 
+    private static final SMSService service = new SMSService();
+
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         process(request,response);
@@ -26,8 +28,6 @@ public class DispatchServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         String requestMessage=request.getParameter("requestMessage");
-
-        SMSService service = new SMSService();
 
         String responseMessage = service.send(requestMessage);
 

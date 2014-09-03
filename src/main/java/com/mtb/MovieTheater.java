@@ -11,7 +11,7 @@ import java.util.Map;
 public class MovieTheater {
 
     public static final int capacity =50;
-    private Map<String, MovieShow> shows = MovieShowFactory.createShows();
+    private Map<String, MovieShow> shows = MovieShowFactory.createShows(capacity);
 
     public BookingResponse bookShow(BookingRequest request) {
         MovieShow show= getShow(request.showTime);

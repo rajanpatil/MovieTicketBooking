@@ -9,9 +9,9 @@ import com.mtb.MovieTheater;
  */
 public class MovieTicketBookingService {
 
-    private MovieTheater theater = new MovieTheater();
+   private MovieTheater theater = new MovieTheater();
 
-    public BookingResponse bookTicket(BookingRequest request) {
+   public BookingResponse bookTicket(BookingRequest request) {
         return theater.bookShow(request);
     }
 }
