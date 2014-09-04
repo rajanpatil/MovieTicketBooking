@@ -34,7 +34,15 @@ public class MovieShow {
     }
 
     public BookingResponse book(BookingRequest request) {
-        BookingResponse.BookingResponseBuilder response = BookingResponse.newBookingResponse().withMsg("booked");
+
+        if(duplicateBookingCheck(request)){
+            return BookingResponse.newBookingResponse().withMsg("already booked").build();
+        }
+
+        if(!checkSeatAvailability(request)){
+           return BookingResponse.newBookingResponse().withMsg("seats not available").build();
+        }
+
         List<Integer> bookedSeats = new ArrayList<Integer>();
         int ticketCounter = request.noOfSeats;
         if(seats.length>request.noOfSeats){

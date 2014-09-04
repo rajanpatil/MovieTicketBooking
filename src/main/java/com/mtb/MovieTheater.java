@@ -15,7 +15,7 @@ public class MovieTheater {
 
     public BookingResponse bookShow(BookingRequest request) {
         MovieShow show= getShow(request.showTime);
-        return (show.duplicateBookingCheck(request))?BookingResponse.newBookingResponse().withMsg("already booked").build():(show.checkSeatAvailability(request)?show.book(request):BookingResponse.newBookingResponse().withMsg("seats not available").build());
+        return show.book(request);
     }
 
     private MovieShow getShow(String show){
