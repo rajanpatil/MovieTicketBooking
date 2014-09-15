@@ -13,7 +13,7 @@ public class SMSServiceTest {
     @Test
     public void sendMovieTicketBookingSMSFor11amShow4Seats(){
         //given
-        String smsRequest = "Name:Rajan,NoOfSeats:4,Show:11am";
+        String smsRequest = "Name-Rajan,NoOfSeats:4,Show:11am";
         String smsResponse=null;
         SMSService service = new SMSService();
         //when
